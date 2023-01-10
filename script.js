@@ -114,5 +114,63 @@ function getCoupeNumber(number) {
     return Math.ceil(number / 4);
 }
 
-console.log(getCoupeNumber(21));
+function getTimeFromMinutes(minutes) {
+    if(minutes < 0 || minutes % 1 != 0 || typeof(minutes) !== 'number'){
+        return 'Ошибка, проверьте данные';
+    }
+
+    const hours = Math.floor(minutes / 60);
+    const min = minutes % 60;
+    let label = '';
+
+    if(hours == 0 || (hours >= 5 && hours <= 10)){
+        label = 'часов';
+    } else if(hours == 1){
+        label = 'час';
+    } else if(hours >= 2 && hours <= 4){
+        label = 'часа';
+    }
+    
+    return `Это ${hours} ${label} и ${min} минут`;
+}
+
+function findMaxNumber(arg1, arg2, arg3, arg4) {
+    if(typeof(arg1) !== 'number' ||
+       typeof(arg2) !== 'number' ||
+       typeof(arg3) !== 'number' ||
+       typeof(arg4) !== 'number'){
+        return 0;
+    }else{
+        return Math.max(arg1, arg2, arg3, arg4);
+    }
+}
+
+function fib(length) {
+    if(typeof(length) != 'number' || length === 0 || length % 1 !== 0){
+        return '';
+    }
+    if(length == 1){
+        return '0';
+    }
+
+    let a = 0;
+    let b = 1;
+    let result = a + ' ' + b + ' ';
+
+    let count = 2;
+    while(count < length){
+        let tmp = a + b;
+        if(count != length-1){
+            result += tmp + ' ';
+        } else {
+            result += tmp;
+        }
+        a = b;
+        b = tmp;
+        count++;
+    }
+    return result;
+}
+
+console.log(fib(8));
 
