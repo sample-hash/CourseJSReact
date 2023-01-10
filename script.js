@@ -95,4 +95,24 @@ function getMathResult(number, times) {
     return result;
 }
 
-console.log(getMathResult(3, 'sf'));
+function calculateVolumeAndArea(length) {
+    if(typeof(length) !== 'number' || length < 0 || length % 1 != 0){
+        return 'При вычислении произошла ошибка';
+    }
+
+    let result = `Объем куба: ${length*length*length}, площадь всей поверхности: ${(length*length)*6}`;
+    return result;
+}
+
+function getCoupeNumber(number) {
+    if(typeof(number) !== 'number' || number < 0 || number % 1 != 0){
+        return 'Ошибка. Проверьте правильность введенного номера места';
+    } else if (number < 0 || number > 36){
+        return 'Таких мест в вагоне не существует';
+    }
+
+    return Math.ceil(number / 4);
+}
+
+console.log(getCoupeNumber(21));
+
