@@ -78,4 +78,21 @@ function func3() {
     console.log(personalMovieDB);
 }
 
-console.log(func3());
+function getMathResult(number, times) {
+    if(times == 0 || times < 0 || typeof(times) == 'string'){
+        return number;
+    }
+
+    let result = '';
+
+    for(let i = 1; i <= times; i++){
+        if(i != times){
+            result += number * i + '---';
+        } else {
+            result += number * i;
+        }
+    }
+    return result;
+}
+
+console.log(getMathResult(3, 'sf'));
