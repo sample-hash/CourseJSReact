@@ -172,5 +172,37 @@ function fib(length) {
     return result;
 }
 
-console.log(fib(8));
+function workWithObj(){
+    const obj = {
+        count: 44,
+        movies: {
+            length: 155,
+            year: 2011
+        },
+        actors: {},
+        genres: ['genres1', 'genres2'],
+        privat: false,
+        getCount: function(){
+            return this.count;
+        }
+    };
+    console.log(obj.getCount());
+    for(let key in obj){
+        if(typeof(obj[key]) === 'object' && !(obj[key] instanceof Array)){
+            console.log(`Обьект ${key}: {`);
+            for(let i in obj[key]){
+                console.log(`   Ключ ${i} со значением ${obj[key][i]}`);
+            }
+            console.log('}');
+            continue;
+        } else if (obj[key] instanceof Array){
+            console.log(`Массив ${key}: [`);
+            console.log(`   Свойство ${key} имеет значение ${obj[key]}`);
+            console.log(']');
+            continue;
+        }
+        console.log(`Свойство ${key} имеет значение ${obj[key]}`);
+    }
+}
+workWithObj();
 
