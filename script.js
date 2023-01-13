@@ -226,5 +226,77 @@ function workWithArr(){
 
 }
 
-workWithArr();
+function valueAndLink(){
+    const obj = {
+        a: 3,
+        b: 5,
+        c: {
+            x: 44,
+            y: 32
+        }
+    };
+
+    function getCopyObj(mainObj){
+        let copyObj = {};
+        for(let key in mainObj){
+            copyObj[key] = mainObj[key];
+        }
+        return copyObj;
+    }
+
+    let copyObj = getCopyObj(obj);
+    obj.a = 10;
+    obj.c.x = 0;
+    console.log(obj);
+    console.log(copyObj);
+
+    const add = {
+        d: 99,
+        e: 101
+    };
+    const clone = Object.assign(obj);
+    console.log(clone);
+    obj.b = 99;
+    obj.c.x = 999;
+    console.log(clone);
+}
+
+function workWithSpread(){
+    const obj = {
+        a: 1,
+        b: 2,
+        c: {
+            x: 3,
+            y: 4
+        }
+    };
+    function copyObj(obj){
+        let copyObj = {};
+        for(let key in obj){
+            copyObj[key] = obj[key];
+        }
+        return copyObj;
+    }
+    const spreadObj = {...obj};
+    const linkObj = obj;
+    const assignObj = Object.assign(obj);
+    let copy = copyObj(obj);
+
+
+    obj.a = 99;
+    obj.c.x = 99;
+    console.log('Основной обьект:');
+    console.log(obj);
+    console.log('Spread обьект:');
+    console.log(spreadObj);
+    console.log('Ссылка обьект:');
+    console.log(linkObj);
+    console.log('Assign обьект:');
+    console.log(assignObj);
+    console.log('Копированый обьект:');
+    console.log(copy);
+}
+workWithSpread();
+
+
 
