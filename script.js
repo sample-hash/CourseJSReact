@@ -204,5 +204,27 @@ function workWithObj(){
         console.log(`Свойство ${key} имеет значение ${obj[key]}`);
     }
 }
-workWithObj();
+
+function workWithArr(){
+    const arr = [1, 3, 25, 16, 7];
+    console.log(arr.sort(compareNum));
+
+    function compareNum(a, b){
+        return a - b;
+    }
+
+    arr.forEach(function(item, index){
+        console.log(`${index}: ${item}`);
+    });
+
+    const clientArr = prompt('', '');
+    const prod = clientArr.split(', ').sort().join('---');
+    console.log(prod);
+
+    const arr2 = ['vvv', 'fff', 'aaa', 'bbb'];
+    console.log(arr2.sort());
+
+}
+
+workWithArr();
 
