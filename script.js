@@ -296,7 +296,21 @@ function workWithSpread(){
     console.log('Копированый обьект:');
     console.log(copy);
 }
-workWithSpread();
+
+function arrSpread(){
+    let arr = [2, 4, 6];
+    let arrSpread = [...arr];
+    let arrLink = arr;
+    let sliceArr = arr.slice();
+    arr[1] = 'test';
+
+    console.log(arr);
+    console.log(arrSpread);
+    console.log(arrLink);
+    console.log(sliceArr);
+
+}
+arrSpread();
 
 
 
