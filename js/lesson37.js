@@ -51,7 +51,16 @@ const personalMovieDB = {
     },
     writeYourGenres: function(){
         for (let i = 0; i <= 3; i++) {
-            personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+            let data = prompt(`Ваш любимый жанр под номером ${i}`);
+            if(data !== 0 || data !== null || data.trim() !== ''){
+                personalMovieDB.genres[i - 1] = data;
+            } else {
+                console.log('Вы ввели неправельные данные или не ввели их вовсе.');
+                i--;
+            }
         }
+        personalMovieDB.genres.forEach((el, index) => {
+            console.log(`Любимый жанр ${index + 1} - это ${el}`);
+        });
     }
 };
