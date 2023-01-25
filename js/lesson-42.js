@@ -1,18 +1,32 @@
 "use strict";
 
 const box = document.getElementById('box');
-console.log(box);
+const btns = document.getElementsByTagName('button');
+const circles = document.getElementsByClassName('circle');
+const hearts = document.querySelectorAll('.heart');
+const oneHeart = document.querySelector('.heart');
+const wrapper = document.querySelector('.wrapper');
 
-const buttons = document.getElementsByTagName('button');
-console.log(buttons);
+// box.style.backgroundColor = 'blue';
+// box.style.width = '500px';
+box.style.cssText = 'background-color: blue; width: 500px';
 
-const circle = document.getElementsByClassName('circle');
-console.log(circle);
+btns[1].style.borderRadius = '100%';
 
-const queryButtons = document.querySelectorAll('button');
-queryButtons.forEach(item => {
-    console.log(item);
+hearts.forEach(item => {
+    item.style.backgroundColor = 'blue';
 });
 
-const div = document.querySelector('div');
-console.log(div);
+const div = document.createElement('div');
+div.classList.add('black');
+
+wrapper.prepend(div);
+// wrapper.before(div);
+// hearts[1].before(div);
+
+// circles[0].style.backgroundColor = 'red';
+// hearts[0].replaceWith(circles[0]);
+
+div.innerHTML = '<h1>Hello</h1>';
+div.insertAdjacentHTML('afterbegin', '<h2>Hello world!</h2>');
+
