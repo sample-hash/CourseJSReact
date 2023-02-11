@@ -6,21 +6,22 @@ const data = {
     header: ['Меню "Фитнес"', 'Меню “Премиум”', 'Меню "Постное"'],
     description: ['Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!', 'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!', 'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.'],
     price: ['229', '550', '430']
-}
+};
 
 class Menu{
-    constructor(img, altImg, header, description, price, selector){
+    constructor(img, altImg, header, description, price, selector, ...classes){
         this.img = img;
         this.altImg = altImg;
         this.header = header;
         this.description = description;
         this.price = price;
         this.selector = document.querySelector(selector);
+        this.classes = classes.length? classes : ['menu__item'];
     }
     render() {
         const element = document.createElement('div');
+        this.classes.forEach(className => element.classList.add(className));
         element.innerHTML = `
-        <div class="menu__item">
             <img src="${this.img}" alt="${this.altImg}">
             <h3 class="menu__item-subtitle">${this.header}</h3>
             <div class="menu__item-descr">${this.description}</div>
@@ -29,7 +30,6 @@ class Menu{
                 <div class="menu__item-cost">Цена:</div>
                 <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
             </div>
-        </div>
         `;
         this.selector.append(element);
     }
