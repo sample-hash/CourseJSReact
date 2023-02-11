@@ -43,5 +43,5 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const modalTimer = setTimeout(showModal, 10000);
+    // const modalTimer = setTimeout(showModal, 10000);
 });
